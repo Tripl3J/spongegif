@@ -31,9 +31,12 @@ while True:
 
 	#The program needs to wait until twitter lets tweet again
 	api.wait_on_rate_limit=True
-
 	
-
+	if datetime.now()==time(0,0,0):
+		gif.gif_download(data.base,20,data.tk)
+		api.update_with_media('gif_BOT.gif',status='🎉😍DAILY GIFS!!😍🎉')
+		print('Dayly printed')
+	
 	#Only works if there is at least one mention
 	if len(ment)>0:
 
@@ -45,11 +48,6 @@ while True:
 
 		print(id_res)
 		print(ment[0].text,"\n")
-
-		if datetime.now()==time(20,48,0):
-			gif.gif_download(data.base,20,data.tk)
-			api.update_with_media('gif_BOT.gif',status='🎉😍DAILY GIFS!!😍🎉')
-			print('Dayly printed')
 
 		#Getting the gif
 		gif.gif_download(data.base+' '+word_search,20,data.tk)
